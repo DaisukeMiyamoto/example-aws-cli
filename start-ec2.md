@@ -20,15 +20,23 @@ $ chmod 600 main-key.pem
 
 ```
 $ aws ec2 run-instances --image-id ami-d874e0a0 --security-groups ssh-sg --count 1 --instance-type t2.micro --key-name main-key --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=ec2-cli}]' --query 'Instances[0].InstanceId'
+"i-0a26a6d6b0dddc87d"
 ```
 
 # Get Public IP
 ```
-$ aws ec2 describe-instances --instance-ids "i-0787e4282810ef9cf" --query 'Reservations[0].Instances[0].PublicIpAddress'
+$ aws ec2 describe-instances --instance-ids "i-0a26a6d6b0dddc87d" --query 'Reservations[0].Instances[0].PublicIpAddress'
+52.42.105.83
 ```
 
 # Connect
 
 ```
-$ ssh -i main-key.pem 
+$ ssh -i main-key.pem ec2-user@52.42.105.83
+```
+
+# Terminate
+
+```
+$ aws ec2 terminate-instance --instance-ids "i-0a26a6d6b0dddc87d"
 ```
