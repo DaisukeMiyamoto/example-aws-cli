@@ -27,6 +27,12 @@ $ aws cloudformation list-stacks
 $ aws cloudformation describe-stacks --stack-name myteststack
 ```
 
+# validate
+
+```
+$ aws cloudformation validate-template --template-body file://cloudformation_templates/ec2.yaml
+```
+
 # delete
 
 ```
