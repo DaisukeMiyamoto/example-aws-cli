@@ -23,8 +23,16 @@ $ aws cloudformation list-stacks
 
 # describe
 
+## describe stack
+
 ```
 $ aws cloudformation describe-stacks --stack-name myteststack
+```
+
+## describe events
+
+```
+$ aws cloudformation describe-stack-events --stack-name myteststack
 ```
 
 # validate
